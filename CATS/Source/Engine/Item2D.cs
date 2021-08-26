@@ -19,12 +19,12 @@ namespace KATSS
             image = Globals.content.Load<Texture2D>(PATH);
         }
 
-        public void Update()
+        public virtual void Update()
         {
 
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             if(image != null)
             {

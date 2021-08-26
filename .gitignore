@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+CATS/obj/Debug/netcoreapp3.1/KATSS.csproj.AssemblyReference.cache
+CATS/.vs/CATS/v16/.suo
