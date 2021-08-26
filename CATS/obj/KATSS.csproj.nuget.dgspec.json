@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\KATSS\\CATS\\KATSS.csproj": {}
+    "C:\\Users\\u1330081\\Documents\\GitHub\\KATSS\\CATS\\KATSS.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\KATSS\\CATS\\KATSS.csproj": {
+    "C:\\Users\\u1330081\\Documents\\GitHub\\KATSS\\CATS\\KATSS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\KATSS\\CATS\\KATSS.csproj",
+        "projectUniqueName": "C:\\Users\\u1330081\\Documents\\GitHub\\KATSS\\CATS\\KATSS.csproj",
         "projectName": "KATSS",
-        "projectPath": "C:\\Projects\\KATSS\\CATS\\KATSS.csproj",
-        "packagesPath": "C:\\Users\\KD\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\KATSS\\CATS\\obj\\",
+        "projectPath": "C:\\Users\\u1330081\\Documents\\GitHub\\KATSS\\CATS\\KATSS.csproj",
+        "packagesPath": "C:\\Users\\u1330081\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\u1330081\\Documents\\GitHub\\KATSS\\CATS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\KD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\u1330081\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

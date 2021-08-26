@@ -7,11 +7,11 @@ namespace KATSS
 {
     public class World
     {
-        public DrawBg bg;
+        public Item2D bg;
 
         public World()
         {
-            bg = new DrawBg("Images\\firstLook", new Vector2(0,0), new Vector2(1920, 1080));
+            bg = new Item2D("Images\\firstLook", new Vector2(0,0), new Vector2(1920, 1080));
         }
 
         public void Update()
