@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace KATSS
     {
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
+        public static List<DropItem> dropItems = new List<DropItem>();
+        public static GraphicsDeviceManager graphics;
     }
 }
