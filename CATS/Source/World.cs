@@ -11,6 +11,7 @@ namespace KATSS
         public Item2D bg;
         public Player player1;
         public Player player2;
+        public DropItemGenerator itemGenerator = new DropItemGenerator();
 
         public World()
         {
@@ -19,17 +20,19 @@ namespace KATSS
             player2 = new Player("character_wire_frame", new Vector2(1440, 800), new Vector2(106, 202), Keys.A, Keys.D);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             player1.Update();
             player2.Update();
+            itemGenerator.Update(gameTime);
         }
 
         public void Draw()
         {
-            bg.Draw();
             player1.Draw();
             player2.Draw();
+            itemGenerator.Draw();
+            //bg.Draw();
         }
     }
 }

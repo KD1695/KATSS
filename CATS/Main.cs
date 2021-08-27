@@ -7,12 +7,10 @@ namespace KATSS
     public class Main : Game
     {
         World world;
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
 
         public Main()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            Globals.graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -20,9 +18,9 @@ namespace KATSS
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _graphics.PreferredBackBufferWidth = 1920;  // set this value to the desired width of your window
-            _graphics.PreferredBackBufferHeight = 1080;   // set this value to the desired height of your window
-            _graphics.ApplyChanges();
+            Globals.graphics.PreferredBackBufferWidth = 1920;  // set this value to the desired width of your window
+            Globals.graphics.PreferredBackBufferHeight = 1080;   // set this value to the desired height of your window
+            Globals.graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -42,7 +40,7 @@ namespace KATSS
                 Exit();
 
             // TODO: Add your update logic here
-            world.Update();
+            world.Update(gameTime);
 
             base.Update(gameTime);
         }
