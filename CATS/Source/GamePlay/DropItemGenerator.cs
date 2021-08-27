@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace KATSS
     public class DropItemGenerator
     {
         int currentTime = 0;
-        string dropImagePATH = "Images\\circle";
+        string dropImagePATH = "Images\\circle"; //default 
         Vector2 dropItemDimension = new Vector2(48, 48); //todo change when size is fixed
         float speed = 2f; //default speed
 
@@ -18,12 +19,16 @@ namespace KATSS
             if (gameTime.TotalGameTime.TotalSeconds > currentTime)
             {
                 currentTime += 2;
-                //generate twice because 2 players
+                
+                //p1 drop
                 Vector2 dropPos = new Vector2(r.Next(20, 940), 20);
-                DropItem drop = new DropItem(dropImagePATH, dropPos, dropItemDimension, Globals.Player1KeySet[r.Next(0,3)], speed);
+                Keys p1Key = Globals.Player1KeySet[r.Next(0,3)];
+                DropItem drop = new DropItem(Globals.DropItemImageList[p1Key], dropPos, dropItemDimension, p1Key, speed);
                 Globals.dropItems.Add(drop);
+                //p2 drop
                 Vector2 dropPos2 = new Vector2(r.Next(980, 1900), 20);
-                DropItem drop2 = new DropItem(dropImagePATH, dropPos2, dropItemDimension, Globals.Player2KeySet[r.Next(0, 3)], speed);
+                Keys p2Key = Globals.Player2KeySet[r.Next(0, 3)];
+                DropItem drop2 = new DropItem(Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
                 Globals.dropItems.Add(drop2);
             }
 

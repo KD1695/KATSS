@@ -16,7 +16,6 @@ namespace KATSS
         {
             _key = key;
             _speed = speed;
-            //Set key image based on key
         }
 
         public override void Update()
