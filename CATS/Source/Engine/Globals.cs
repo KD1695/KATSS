@@ -13,6 +13,7 @@ namespace KATSS
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
         public static List<DropItem> dropItems = new List<DropItem>();
+        public static List<DropItem> dropItems2 = new List<DropItem>();
         public static GraphicsDeviceManager graphics;
 
         public static List<Keys> Player1KeySet = new List<Keys>{Keys.D1, Keys.D2, Keys.D3, Keys.D4};
