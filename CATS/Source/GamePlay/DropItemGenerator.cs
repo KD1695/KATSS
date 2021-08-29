@@ -9,7 +9,7 @@ namespace KATSS
     public class DropItemGenerator
     {
         int currentTime = 0;
-        string dropImagePATH = "Images\\circle"; //default 
+        string dropImagePATH = "Images\\"; 
         Vector2 dropItemDimension = new Vector2(48, 48); //todo change when size is fixed
         float speed = 2f; //default speed
 
@@ -23,12 +23,12 @@ namespace KATSS
                 //p1 drop
                 Vector2 dropPos = new Vector2(r.Next(20, 940), 20);
                 Keys p1Key = Globals.Player1KeySet[r.Next(0,3)];
-                DropItem drop = new DropItem(Globals.DropItemImageList[p1Key], dropPos, dropItemDimension, p1Key, speed);
+                DropItem drop = new DropItem(dropImagePATH+Globals.DropItemImageList[p1Key], dropPos, dropItemDimension, p1Key, speed);
                 Globals.dropItems.Add(drop);
                 //p2 drop
                 Vector2 dropPos2 = new Vector2(r.Next(980, 1900), 20);
                 Keys p2Key = Globals.Player2KeySet[r.Next(0, 3)];
-                DropItem drop2 = new DropItem(Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
+                DropItem drop2 = new DropItem(dropImagePATH + Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
                 Globals.dropItems.Add(drop2);
             }
 
