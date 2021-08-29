@@ -17,5 +17,16 @@ namespace KATSS
 
         public static List<Keys> Player1KeySet = new List<Keys>{Keys.D1, Keys.D2, Keys.D3, Keys.D4};
         public static List<Keys> Player2KeySet = new List<Keys>{Keys.NumPad7, Keys.NumPad8, Keys.NumPad9, Keys.NumPad6};
+        public static Dictionary<Keys,string> DropItemImageList = new Dictionary<Keys, string> 
+                                                                {
+                                                                    {Keys.D1, "icon"},
+                                                                    {Keys.D2, "icon1"},
+                                                                    {Keys.D3, "icon2"},
+                                                                    {Keys.D4, "icon3"},
+                                                                    {Keys.NumPad6, "icon"},
+                                                                    {Keys.NumPad7, "icon1"},
+                                                                    {Keys.NumPad8, "icon2"},
+                                                                    {Keys.NumPad9, "icon3"}
+                                                                };
     }
 }
