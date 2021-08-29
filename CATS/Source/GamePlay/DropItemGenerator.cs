@@ -29,7 +29,7 @@ namespace KATSS
                 Vector2 dropPos2 = new Vector2(r.Next(980, 1900), 20);
                 Keys p2Key = Globals.Player2KeySet[r.Next(0, 3)];
                 DropItem drop2 = new DropItem(dropImagePATH + Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
-                Globals.dropItems.Add(drop2);
+                Globals.dropItems2.Add(drop2);
             }
 
             foreach (var drop in Globals.dropItems)
@@ -37,15 +37,26 @@ namespace KATSS
                 drop.Update();
             }
 
+            foreach (var drop in Globals.dropItems2)
+            {
+                drop.Update();
+            }
+
             //add speed scaling with time
 
             Globals.dropItems.RemoveAll(item => item.outOfBounds);
+            Globals.dropItems2.RemoveAll(item => item.outOfBounds);
         }
 
         public void Draw()
         {
             foreach (var drop in Globals.dropItems)
             { 
+                drop.Draw();
+            }
+
+            foreach (var drop in Globals.dropItems2)
+            {
                 drop.Draw();
             }
         }

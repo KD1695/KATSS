@@ -15,7 +15,7 @@ namespace KATSS
 
         public World()
         {
-            bg = new Item2D("Images\\firstLook", new Vector2(0,0), new Vector2(1920, 1080));
+            bg = new Item2D("background", new Vector2(0,0), new Vector2(1920, 1080));
             player1 = new Player("character_wire_frame", new Vector2(480, 800), new Vector2(106,202), Keys.Left, Keys.Right);
             player2 = new Player("character_wire_frame", new Vector2(1440, 800), new Vector2(106, 202), Keys.A, Keys.D);
         }
