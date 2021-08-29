@@ -15,9 +15,9 @@ namespace KATSS
 
         public World()
         {
-            bg = new Item2D("background", new Vector2(0,0), new Vector2(1920, 1080));
-            player1 = new Player("character_wire_frame", new Vector2(480, 800), new Vector2(106,202), Keys.Left, Keys.Right);
-            player2 = new Player("character_wire_frame", new Vector2(1440, 800), new Vector2(106, 202), Keys.A, Keys.D);
+            bg = new Item2D("Images\\background", new Vector2(0,0), new Vector2(1920, 1080));
+            player1 = new Player("Images\\character_wire_frame", new Vector2(480, 800), new Vector2(106,202), Keys.A, Keys.D);
+            player2 = new Player("Images\\character_wire_frame", new Vector2(1440, 800), new Vector2(106, 202), Keys.Left, Keys.Right);
         }
 
         public void Update(GameTime gameTime)
@@ -29,10 +29,10 @@ namespace KATSS
 
         public void Draw()
         {
+            bg.Draw();
             player1.Draw();
             player2.Draw();
             itemGenerator.Draw();
-            //bg.Draw();
         }
     }
 }
