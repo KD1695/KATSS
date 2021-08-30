@@ -12,16 +12,19 @@ namespace KATSS
         public Player player1;
         public Player player2;
         public DropItemGenerator itemGenerator = new DropItemGenerator();
+        public AudienceCheerBar bar1 = new AudienceCheerBar();
 
         public World()
         {
             bg = new Item2D("Images\\background", new Vector2(0,0), new Vector2(1920, 1080));
             player1 = new Player("Images\\front", new Vector2(318, 500), new Vector2(324,399), Keys.A, Keys.D, true);
             player2 = new Player("Images\\front", new Vector2(1278, 500), new Vector2(324, 399), Keys.Left, Keys.Right, false);
+            bar1.SetCheerValue(70);
         }
 
         public void Update(GameTime gameTime)
         {
+            bar1.Update(gameTime);
             player1.Update();
             player2.Update();
             itemGenerator.Update(gameTime);
@@ -30,6 +33,7 @@ namespace KATSS
         public void Draw()
         {
             bg.Draw();
+            bar1.Draw();
             player1.Draw();
             player2.Draw();
             itemGenerator.Draw();
