@@ -19,6 +19,7 @@ namespace KATSS
             data = new Color[30 * 400];
             coor = new Vector2(50, 150);
             currentCheer = data.Length;
+            setCheerVal = data.Length;
         }
 
         public void Update(GameTime gameTime)
