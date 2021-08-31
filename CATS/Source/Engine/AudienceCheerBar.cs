@@ -13,13 +13,21 @@ namespace KATSS
         Color[] data;
         int currentCheer;
         int setCheerVal;
-        public AudienceCheerBar()
+        Texture2D texture;
+        Vector2 _texPosition;
+        Vector2 _dimension;
+
+        public AudienceCheerBar(Vector2 texPosition)
         {
-            rect = new Texture2D(Globals.graphics.GraphicsDevice, 30, 400);
-            data = new Color[30 * 400];
-            coor = new Vector2(50, 150);
+            _texPosition = texPosition;
+            rect = new Texture2D(Globals.graphics.GraphicsDevice, 28, 625);
+            data = new Color[28 * 625];
+            coor = new Vector2(texPosition.X + 82, 155);
             currentCheer = data.Length;
             setCheerVal = data.Length;
+
+            texture = Globals.content.Load<Texture2D>("Images\\Audience_Bar_blank");
+            _dimension = new Vector2(208.5f, 769.5f);
         }
 
         public void Update(GameTime gameTime)
@@ -30,10 +38,11 @@ namespace KATSS
 
         public void Draw()
         {
-            for (int i = 0; i < currentCheer; ++i) data[i] = Color.Chocolate;
+            for (int i = 0; i < currentCheer; ++i) data[i] = Color.Transparent;
             for (int i = currentCheer; i < data.Length; ++i) data[i] = Color.Red;
             rect.SetData(data);
             Globals.spriteBatch.Draw(rect, coor, Color.White);
+            Globals.spriteBatch.Draw(texture, new Rectangle((int)_texPosition.X, (int)_texPosition.Y, (int)_dimension.X, (int)_dimension.Y), null, Color.White, 0.0f, new Vector2(texture.Bounds.X / 2, texture.Bounds.Y / 2), new SpriteEffects(), 1);
         }
 
         public void SetCheerValue(int percent)

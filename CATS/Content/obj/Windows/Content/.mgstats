@@ -1,4 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/Images/0828.jpg","C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/bin/Windows/Content/Images/0828.xnb","TextureProcessor","Texture2DContent",903082,3686485,0.1712253
+"C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/Images/background.png","C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/bin/Windows/Content/Images/background.xnb","TextureProcessor","Texture2DContent",1712843,3686485,0.0767408
+"C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/Images/character_wire_frame.png","C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/bin/Windows/Content/Images/character_wire_frame.xnb","TextureProcessor","Texture2DContent",2305,121285,0.0061587
 "C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/Images/circle.png","C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/bin/Windows/Content/Images/circle.xnb","TextureProcessor","Texture2DContent",12183,1223321,0.1277405
 "C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/Images/front.png","C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/bin/Windows/Content/Images/front.xnb","TextureProcessor","Texture2DContent",56405,439429,0.1049983
 "C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/Images/icon1.png","C:/Users/u1330081/Documents/GitHub/KATSS/CATS/Content/bin/Windows/Content/Images/icon1.xnb","TextureProcessor","Texture2DContent",10536,360085,0.0071977
