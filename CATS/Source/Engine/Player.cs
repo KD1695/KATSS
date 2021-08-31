@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,19 +13,43 @@ namespace KATSS
     {
         public Keys _left;
         public Keys _right;
-        public int move = 5;
+        public int move = 10;
         float leftBound;
         float rightBound;
-        int width = 5;
-        int dif = 2;
-        int height = 5;
+        int width = 80;
+        int upperBound = 800;
+        int lowerBound = 600;
+        int playerWidth = 162;
+        int itemWidth = 50;
+        string path = "Images\\";
+        bool _isPlayer1;
 
-        public Player(string PATH, Vector2 pos, Vector2 dimension, Keys left, Keys right) : base(PATH, pos, dimension)
+        public Dictionary<Keys, Texture2D> PoseTextureList = new Dictionary<Keys, Texture2D>{};
+
+        public Player(string PATH, Vector2 pos, Vector2 dimension, Keys left, Keys right, bool isPlayer1) : base(PATH, pos, dimension)
         {
             _left = left;
             _right = right;
-            leftBound = _pos.X - 480;
-            rightBound = _pos.X + 480;
+            leftBound = _pos.X - (480 - 80);
+            rightBound = _pos.X + (480 - 80);
+            _isPlayer1 = isPlayer1;
+
+            if(isPlayer1)
+            {
+                foreach(Keys k in Globals.Player1KeySet)
+                {
+                    Texture2D im = Globals.content.Load<Texture2D>(path + Globals.PoseImageList[k]);
+                    PoseTextureList.Add(k, im);
+                }
+            }
+            else
+            {
+                foreach (Keys k in Globals.Player2KeySet)
+                {
+                    Texture2D im = Globals.content.Load<Texture2D>(path + Globals.PoseImageList[k]);
+                    PoseTextureList.Add(k, im);
+                }
+            }
         }
 
         public override void Update()
@@ -50,27 +76,68 @@ namespace KATSS
         {
             foreach (var drop in Globals.dropItems)
             {
-                if (Math.Abs(drop._pos.X - _pos.X) < width && Math.Abs(drop._pos.Y - (_pos.Y - dif)) < height)
-                    CheckKey(drop._key);
+                /*
+                if ( drop._pos.Y < upperBound && drop._pos.Y > lowerBound && Math.Abs(drop._pos.X - _pos.X) < width )
+                    CheckKey(drop);*/
+                if ((drop._pos.Y + itemWidth) < upperBound && (drop._pos.Y + itemWidth) > lowerBound && Math.Abs((drop._pos.X + itemWidth) - (_pos.X + playerWidth)) < width)
+                    CheckKey(drop);
+
+            }
+
+            foreach (var drop in Globals.dropItems2)
+            {
+                /*
+                if ( drop._pos.Y < upperBound && drop._pos.Y > lowerBound && Math.Abs(drop._pos.X - _pos.X) < width )
+                    CheckKey(drop);*/
+                if ( (drop._pos.Y+50)  < upperBound && (drop._pos.Y+50) > lowerBound && Math.Abs((drop._pos.X+50) - (_pos.X+playerWidth)) < width)
+                    CheckKey(drop);
             }
 
         }
 
-        void CheckKey(Keys key)
+        void CheckKey(DropItem drop)
         {
+            //Debug.WriteLine(key.ToString());
+
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(key))
+            if (_isPlayer1)
             {
-                //change player pose
-                //add audio bar
+                if (Globals.Player1KeySet.Any(key => state.IsKeyDown(key)))
+                {
+                    if (state.IsKeyDown(drop._key))
+                    {
+                        image = PoseTextureList[drop._key];
+                        drop.outOfBounds = true;
+                    }
+                    else
+                    {
+                        //change player pose to failed pic
+                    }
+                }
             }
             else
             {
-                //change player pose to failed pic
+                if (Globals.Player2KeySet.Any(key => state.IsKeyDown(key)))
+                {
+                    if (state.IsKeyDown(drop._key))
+                    {
+                        image = PoseTextureList[drop._key];
+                        drop.outOfBounds = true;
+                    }
+                    else
+                    {
+                        //change player pose to failed pic
+                    }
+                }
             }
 
+            
+            
+
         }
-        
+
+       
+
     }
 }

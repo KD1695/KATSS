@@ -10,7 +10,7 @@ namespace KATSS
     {
         int currentTime = 0;
         string dropImagePATH = "Images\\"; 
-        Vector2 dropItemDimension = new Vector2(48, 48); //todo change when size is fixed
+        Vector2 dropItemDimension = new Vector2(100, 100); //todo change when size is fixed
         float speed = 2f; //default speed
 
         public void Update(GameTime gameTime)
