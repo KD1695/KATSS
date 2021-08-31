@@ -21,12 +21,12 @@ namespace KATSS
                 currentTime += 2;
                 
                 //p1 drop
-                Vector2 dropPos = new Vector2(r.Next(20, 940), 20);
+                Vector2 dropPos = new Vector2(r.Next(100, 910), 20);
                 Keys p1Key = Globals.Player1KeySet[r.Next(0,3)];
                 DropItem drop = new DropItem(dropImagePATH+Globals.DropItemImageList[p1Key], dropPos, dropItemDimension, p1Key, speed);
                 Globals.dropItems.Add(drop);
                 //p2 drop
-                Vector2 dropPos2 = new Vector2(r.Next(980, 1900), 20);
+                Vector2 dropPos2 = new Vector2(r.Next(1110, 1820), 20);
                 Keys p2Key = Globals.Player2KeySet[r.Next(0, 3)];
                 DropItem drop2 = new DropItem(dropImagePATH + Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
                 Globals.dropItems2.Add(drop2);
