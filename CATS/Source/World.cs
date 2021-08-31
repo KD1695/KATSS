@@ -20,12 +20,14 @@ namespace KATSS
             bg = new Item2D("Images\\background", new Vector2(0,0), new Vector2(1920, 1080));
             player1 = new Player("Images\\front", new Vector2(318, 500), new Vector2(324,399), Keys.A, Keys.D, true);
             player2 = new Player("Images\\front", new Vector2(1278, 500), new Vector2(324, 399), Keys.Left, Keys.Right, false);
-            bar1.SetCheerValue(99);
-            bar2.SetCheerValue(99);
+            bar1.SetCheerValue(0);
+            bar2.SetCheerValue(0);
         }
 
         public void Update(GameTime gameTime)
         {
+            bar1.SetCheerValue(Globals.cheerP1);
+            bar2.SetCheerValue(Globals.cheerP2);
             bar1.Update(gameTime);
             bar2.Update(gameTime);
             player1.Update();

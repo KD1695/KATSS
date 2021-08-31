@@ -16,6 +16,9 @@ namespace KATSS
         public static List<DropItem> dropItems2 = new List<DropItem>();
         public static GraphicsDeviceManager graphics;
 
+        public static int cheerP1 = 0;
+        public static int cheerP2 = 0;
+
         public static List<Keys> Player1KeySet = new List<Keys>{Keys.D1, Keys.D2, Keys.D3, Keys.D4};
         public static List<Keys> Player2KeySet = new List<Keys>{Keys.NumPad7, Keys.NumPad8, Keys.NumPad9, Keys.NumPad6};
         public static Dictionary<Keys,string> DropItemImageList = new Dictionary<Keys, string> 
