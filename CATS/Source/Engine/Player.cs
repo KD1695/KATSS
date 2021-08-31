@@ -109,6 +109,7 @@ namespace KATSS
                     {
                         image = PoseTextureList[drop._key];
                         drop.outOfBounds = true;
+                        Globals.cheerP1 = (Globals.cheerP1 + 5) > 99 ? 99 : Globals.cheerP1 + 5;
                     }
                     else
                     {
@@ -124,6 +125,7 @@ namespace KATSS
                     {
                         image = PoseTextureList[drop._key];
                         drop.outOfBounds = true;
+                        Globals.cheerP2 = (Globals.cheerP2 + 5) > 99 ? 99 : Globals.cheerP2 + 5;
                     }
                     else
                     {
