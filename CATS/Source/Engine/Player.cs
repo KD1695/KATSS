@@ -30,6 +30,7 @@ namespace KATSS
         bool isPose = false;
 
         public Dictionary<Keys, Texture2D> PoseTextureList = new Dictionary<Keys, Texture2D>{};
+        Texture2D superPose;
 
         public Player(string PATH, Vector2 pos, Vector2 dimension, Keys left, Keys right, bool isPlayer1) : base(PATH, pos, dimension)
         {
@@ -39,6 +40,7 @@ namespace KATSS
             rightBound = 1920 - 240;
             _isPlayer1 = isPlayer1;
             neutralPose = Globals.content.Load<Texture2D>(PATH);
+            superPose = (_isPlayer1) ? Globals.content.Load<Texture2D>("Images\\attack pose") : Globals.content.Load<Texture2D>("Images\\cat 2 attack pose");
 
             if (isPlayer1)
             {
@@ -91,23 +93,10 @@ namespace KATSS
         {
             foreach (var drop in Globals.dropItems)
             {
-                /*
-                if ( drop._pos.Y < upperBound && drop._pos.Y > lowerBound && Math.Abs(drop._pos.X - _pos.X) < width )
-                    CheckKey(drop);*/
                 if ((drop._pos.Y + itemWidth) < upperBound && (drop._pos.Y + itemWidth) > lowerBound && Math.Abs((drop._pos.X + itemWidth) - (_pos.X + playerWidth)) < width)
                     CheckKey(drop);
 
             }
-
-            //foreach (var drop in Globals.dropItems2)
-            //{
-            //    /*
-            //    if ( drop._pos.Y < upperBound && drop._pos.Y > lowerBound && Math.Abs(drop._pos.X - _pos.X) < width )
-            //        CheckKey(drop);*/
-            //    if ( (drop._pos.Y+50)  < upperBound && (drop._pos.Y+50) > lowerBound && Math.Abs((drop._pos.X+50) - (_pos.X+playerWidth)) < width)
-            //        CheckKey(drop);
-            //}
-
         }
 
         void CheckKey(DropItem drop)
@@ -124,7 +113,7 @@ namespace KATSS
                     {
                         image = PoseTextureList[drop._keys[0]];
                         drop.outOfBounds = true;
-                        Globals.cheerP1 = (Globals.cheerP1 + 5) > 99 ? 99 : Globals.cheerP1 + 5;
+                        Globals.cheerP1 = (Globals.cheerP1 + 25) > 100 ? 100 : Globals.cheerP1 + 25;
                         isPose = true;
                     }
                     else
@@ -142,7 +131,7 @@ namespace KATSS
                         image = PoseTextureList[drop._keys[1]];
                         drop.outOfBounds = true;
                         isPose = true;
-                        Globals.cheerP2 = (Globals.cheerP2 + 5) > 99 ? 99 : Globals.cheerP2 + 5;
+                        Globals.cheerP2 = (Globals.cheerP2 + 25) > 100 ? 100 : Globals.cheerP2 + 25;
                     }
                     else
                     {
@@ -150,6 +139,12 @@ namespace KATSS
                     }
                 }
             }
+        }
+
+        public void SuperPose()
+        {
+            image = superPose;
+            isPose = true;
         }
     }
 }

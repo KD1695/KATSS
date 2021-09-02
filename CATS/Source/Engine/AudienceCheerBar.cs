@@ -32,13 +32,21 @@ namespace KATSS
 
         public void Update(GameTime gameTime)
         {
-            if(currentCheer > setCheerVal)
-                currentCheer -= (int)gameTime.TotalGameTime.TotalSeconds*7;
+            if (currentCheer > setCheerVal)
+                currentCheer -= (int)gameTime.TotalGameTime.TotalSeconds * 7;
+
+            if (currentCheer < setCheerVal)
+                currentCheer += (int)gameTime.TotalGameTime.TotalSeconds * 7;
         }
 
         public void Draw()
         {
-            for (int i = 0; i < currentCheer; i++) data[i] = Color.Transparent;
+            for (int i = 0; i < currentCheer; i++)
+            {
+                if (i >= data.Length)
+                    break;
+                data[i] = Color.Transparent;
+            }
             for (int i = currentCheer; i < data.Length; i++)
             {
                 if (i < 0)
