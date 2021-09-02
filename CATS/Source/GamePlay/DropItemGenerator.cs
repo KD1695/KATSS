@@ -21,15 +21,16 @@ namespace KATSS
                 currentTime += 2;
                 
                 //p1 drop
-                Vector2 dropPos = new Vector2(r.Next(100, 910), 20);
-                Keys p1Key = Globals.Player1KeySet[r.Next(0,3)];
-                DropItem drop = new DropItem(dropImagePATH+Globals.DropItemImageList[p1Key], dropPos, dropItemDimension, p1Key, speed);
+                Vector2 dropPos = new Vector2(r.Next(100, 1820), 20);
+                int newKeyIndex = r.Next(0, 3);
+                List<Keys> p1Key = new List<Keys> { Globals.Player1KeySet[newKeyIndex], Globals.Player2KeySet[newKeyIndex] };
+                DropItem drop = new DropItem(dropImagePATH+Globals.DropItemImageList[Globals.Player1KeySet[newKeyIndex]], dropPos, dropItemDimension, p1Key, speed);
                 Globals.dropItems.Add(drop);
-                //p2 drop
-                Vector2 dropPos2 = new Vector2(r.Next(1110, 1820), 20);
-                Keys p2Key = Globals.Player2KeySet[r.Next(0, 3)];
-                DropItem drop2 = new DropItem(dropImagePATH + Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
-                Globals.dropItems2.Add(drop2);
+                ////p2 drop
+                //Vector2 dropPos2 = new Vector2(r.Next(1110, 1820), 20);
+                //Keys p2Key = Globals.Player2KeySet[r.Next(0, 3)];
+                //DropItem drop2 = new DropItem(dropImagePATH + Globals.DropItemImageList[p2Key], dropPos2, dropItemDimension, p2Key, speed);
+                //Globals.dropItems2.Add(drop2);
             }
 
             foreach (var drop in Globals.dropItems)
@@ -37,15 +38,15 @@ namespace KATSS
                 drop.Update(gameTime);
             }
 
-            foreach (var drop in Globals.dropItems2)
-            {
-                drop.Update(gameTime);
-            }
+            //foreach (var drop in Globals.dropItems2)
+            //{
+            //    drop.Update();
+            //}
 
             //add speed scaling with time
 
             Globals.dropItems.RemoveAll(item => item.outOfBounds);
-            Globals.dropItems2.RemoveAll(item => item.outOfBounds);
+            //Globals.dropItems2.RemoveAll(item => item.outOfBounds);
         }
 
         public void Draw()
@@ -55,10 +56,10 @@ namespace KATSS
                 drop.Draw();
             }
 
-            foreach (var drop in Globals.dropItems2)
-            {
-                drop.Draw();
-            }
+            //foreach (var drop in Globals.dropItems2)
+            //{
+            //    drop.Draw();
+            //}
         }
     }
 }
