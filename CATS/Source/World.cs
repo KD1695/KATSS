@@ -18,8 +18,8 @@ namespace KATSS
         public World()
         {
             bg = new Item2D("Images\\background", new Vector2(0,0), new Vector2(1920, 1080));
-            player1 = new Player("Images\\front", new Vector2(318, 500), new Vector2(324,399), Keys.A, Keys.D, true);
-            player2 = new Player("Images\\front", new Vector2(1278, 500), new Vector2(324, 399), Keys.Left, Keys.Right, false);
+            player1 = new Player("Images\\front", new Vector2(318, 440), new Vector2(388,478), Keys.A, Keys.D, true);
+            player2 = new Player("Images\\front", new Vector2(1278, 440), new Vector2(388, 478), Keys.Left, Keys.Right, false);
             bar1.SetCheerValue(0);
             bar2.SetCheerValue(0);
         }
@@ -30,8 +30,8 @@ namespace KATSS
             bar2.SetCheerValue(Globals.cheerP2);
             bar1.Update(gameTime);
             bar2.Update(gameTime);
-            player1.Update();
-            player2.Update();
+            player1.Update(gameTime);
+            player2.Update(gameTime);
             itemGenerator.Update(gameTime);
         }
 
