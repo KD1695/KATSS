@@ -34,12 +34,12 @@ namespace KATSS
 
             foreach (var drop in Globals.dropItems)
             {
-                drop.Update();
+                drop.Update(gameTime);
             }
 
             foreach (var drop in Globals.dropItems2)
             {
-                drop.Update();
+                drop.Update(gameTime);
             }
 
             //add speed scaling with time

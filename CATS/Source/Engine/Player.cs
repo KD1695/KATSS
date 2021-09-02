@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -23,6 +24,10 @@ namespace KATSS
         int itemWidth = 50;
         string path = "Images\\";
         bool _isPlayer1;
+        Texture2D neutralPose;
+        float poseDuration = 0.7f;
+        float currentTime = 0.0f;
+        bool isPose = false;
 
         public Dictionary<Keys, Texture2D> PoseTextureList = new Dictionary<Keys, Texture2D>{};
 
@@ -30,11 +35,12 @@ namespace KATSS
         {
             _left = left;
             _right = right;
-            leftBound = _pos.X - (480 - 80);
-            rightBound = _pos.X + (480 - 80);
+            leftBound = - 80;
+            rightBound = 1920 - 240;
             _isPlayer1 = isPlayer1;
+            neutralPose = Globals.content.Load<Texture2D>(PATH);
 
-            if(isPlayer1)
+            if (isPlayer1)
             {
                 foreach(Keys k in Globals.Player1KeySet)
                 {
@@ -52,9 +58,18 @@ namespace KATSS
             }
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
-
+            if (isPose) {
+                currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds; //Time passed since last Update() 
+                if (currentTime >= poseDuration)
+                {
+                    isPose = false;
+                    currentTime = 0;
+                    image = neutralPose;
+                }
+            }
+            
             CollisionDetect();
 
             KeyboardState state = Keyboard.GetState();
@@ -110,6 +125,7 @@ namespace KATSS
                         image = PoseTextureList[drop._key];
                         drop.outOfBounds = true;
                         Globals.cheerP1 = (Globals.cheerP1 + 5) > 99 ? 99 : Globals.cheerP1 + 5;
+                        isPose = true;
                     }
                     else
                     {
@@ -125,6 +141,7 @@ namespace KATSS
                     {
                         image = PoseTextureList[drop._key];
                         drop.outOfBounds = true;
+                        isPose = true;
                         Globals.cheerP2 = (Globals.cheerP2 + 5) > 99 ? 99 : Globals.cheerP2 + 5;
                     }
                     else
@@ -134,9 +151,12 @@ namespace KATSS
                 }
             }
 
-            
-            
 
+        }
+
+        public static IEnumerator ChangePic()
+        {
+            yield return 100;
         }
 
        

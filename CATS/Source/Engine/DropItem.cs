@@ -18,7 +18,7 @@ namespace KATSS
             _speed = speed;
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
             _pos = new Vector2(_pos.X, _pos.Y + _speed);
             if(_pos.Y > Globals.graphics.GraphicsDevice.Viewport.Height)

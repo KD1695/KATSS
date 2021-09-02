@@ -19,7 +19,7 @@ namespace KATSS
             image = Globals.content.Load<Texture2D>(PATH);
         }
 
-        public virtual void Update()
+        public virtual void Update(GameTime gameTime)
         {
 
         }
