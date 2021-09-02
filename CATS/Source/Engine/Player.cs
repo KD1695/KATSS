@@ -99,14 +99,14 @@ namespace KATSS
 
             }
 
-            foreach (var drop in Globals.dropItems2)
-            {
-                /*
-                if ( drop._pos.Y < upperBound && drop._pos.Y > lowerBound && Math.Abs(drop._pos.X - _pos.X) < width )
-                    CheckKey(drop);*/
-                if ( (drop._pos.Y+50)  < upperBound && (drop._pos.Y+50) > lowerBound && Math.Abs((drop._pos.X+50) - (_pos.X+playerWidth)) < width)
-                    CheckKey(drop);
-            }
+            //foreach (var drop in Globals.dropItems2)
+            //{
+            //    /*
+            //    if ( drop._pos.Y < upperBound && drop._pos.Y > lowerBound && Math.Abs(drop._pos.X - _pos.X) < width )
+            //        CheckKey(drop);*/
+            //    if ( (drop._pos.Y+50)  < upperBound && (drop._pos.Y+50) > lowerBound && Math.Abs((drop._pos.X+50) - (_pos.X+playerWidth)) < width)
+            //        CheckKey(drop);
+            //}
 
         }
 
@@ -120,9 +120,9 @@ namespace KATSS
             {
                 if (Globals.Player1KeySet.Any(key => state.IsKeyDown(key)))
                 {
-                    if (state.IsKeyDown(drop._key))
+                    if (drop._keys.Any(key => state.IsKeyDown(key)))
                     {
-                        image = PoseTextureList[drop._key];
+                        image = PoseTextureList[drop._keys[0]];
                         drop.outOfBounds = true;
                         Globals.cheerP1 = (Globals.cheerP1 + 5) > 99 ? 99 : Globals.cheerP1 + 5;
                         isPose = true;
@@ -137,9 +137,9 @@ namespace KATSS
             {
                 if (Globals.Player2KeySet.Any(key => state.IsKeyDown(key)))
                 {
-                    if (state.IsKeyDown(drop._key))
+                    if (drop._keys.Any(key => state.IsKeyDown(key)))
                     {
-                        image = PoseTextureList[drop._key];
+                        image = PoseTextureList[drop._keys[1]];
                         drop.outOfBounds = true;
                         isPose = true;
                         Globals.cheerP2 = (Globals.cheerP2 + 5) > 99 ? 99 : Globals.cheerP2 + 5;
@@ -150,16 +150,6 @@ namespace KATSS
                     }
                 }
             }
-
-
         }
-
-        public static IEnumerator ChangePic()
-        {
-            yield return 100;
-        }
-
-       
-
     }
 }

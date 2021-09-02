@@ -9,12 +9,13 @@ namespace KATSS
 {
     class DropItem : Item2D
     {
-        public Keys _key;
+        public List<Keys> _keys = new List<Keys>();
         float _speed;
         public bool outOfBounds = false;
-        public DropItem(string PATH, Vector2 pos, Vector2 dimension, Keys key, float speed) : base(PATH, pos, dimension)
+        public DropItem(string PATH, Vector2 pos, Vector2 dimension, List<Keys> keys, float speed) : base(PATH, pos, dimension)
         {
-            _key = key;
+            _keys.Clear();
+            _keys.AddRange(keys);
             _speed = speed;
         }
 

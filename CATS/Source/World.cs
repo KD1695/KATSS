@@ -26,8 +26,14 @@ namespace KATSS
 
         public void Update(GameTime gameTime)
         {
-            bar1.SetCheerValue(Globals.cheerP1);
-            bar2.SetCheerValue(Globals.cheerP2);
+            if(Globals.cheerP1 > 0)
+            {
+                bar1.SetCheerValue(Globals.cheerP1);
+            }
+            if (Globals.cheerP2 > 0)
+            {
+                bar2.SetCheerValue(Globals.cheerP2);
+            }
             bar1.Update(gameTime);
             bar2.Update(gameTime);
             player1.Update(gameTime);
