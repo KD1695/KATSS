@@ -19,7 +19,7 @@ namespace KATSS
         {
             bg = new Item2D("Images\\background", new Vector2(0,0), new Vector2(1920, 1080));
             player1 = new Player("Images\\front", new Vector2(318, 440), new Vector2(388,478), Keys.A, Keys.D, true);
-            player2 = new Player("Images\\front", new Vector2(1278, 440), new Vector2(388, 478), Keys.Left, Keys.Right, false);
+            player2 = new Player("Images\\cat2 front", new Vector2(1278, 440), new Vector2(388, 478), Keys.Left, Keys.Right, false);
             bar1.SetCheerValue(0);
             bar2.SetCheerValue(0);
         }

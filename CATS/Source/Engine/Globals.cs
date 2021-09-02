@@ -20,17 +20,17 @@ namespace KATSS
         public static int cheerP2 = 0;
 
         public static List<Keys> Player1KeySet = new List<Keys>{Keys.D1, Keys.D2, Keys.D3, Keys.D4};
-        public static List<Keys> Player2KeySet = new List<Keys>{Keys.NumPad7, Keys.NumPad8, Keys.NumPad9, Keys.NumPad6};
+        public static List<Keys> Player2KeySet = new List<Keys>{Keys.NumPad1, Keys.NumPad2, Keys.NumPad3, Keys.NumPad4};
         public static Dictionary<Keys,string> DropItemImageList = new Dictionary<Keys, string> 
                                                                 {
                                                                     {Keys.D1, "icon1"},
                                                                     {Keys.D2, "icon2"},
                                                                     {Keys.D3, "icon3"},
                                                                     {Keys.D4, "icon4"},
-                                                                    {Keys.NumPad6, "icon6"},
-                                                                    {Keys.NumPad7, "icon7"},
-                                                                    {Keys.NumPad8, "icon8"},
-                                                                    {Keys.NumPad9, "icon9"}
+                                                                    {Keys.NumPad1, "icon1"},
+                                                                    {Keys.NumPad2, "icon2"},
+                                                                    {Keys.NumPad3, "icon3"},
+                                                                    {Keys.NumPad4, "icon4"}
                                                                 };
 
         public static Dictionary<Keys, string> PoseImageList = new Dictionary<Keys, string>
@@ -39,10 +39,10 @@ namespace KATSS
                                                                     {Keys.D2, "pose1"},
                                                                     {Keys.D3, "pose2"},
                                                                     {Keys.D4, "pose3"},
-                                                                    {Keys.NumPad6, "pose"},
-                                                                    {Keys.NumPad7, "pose1"},
-                                                                    {Keys.NumPad8, "pose2"},
-                                                                    {Keys.NumPad9, "pose3"}
+                                                                    {Keys.NumPad1, "cat 2 p1"},
+                                                                    {Keys.NumPad2, "cat 2 p2"},
+                                                                    {Keys.NumPad3, "cat 2 p3"},
+                                                                    {Keys.NumPad4, "cat 2 p4"}
                                                                 };
         /*
         public static Dictionary<Keys, Texture2D> PoseTextureList = new Dictionary<Keys, Texture2D>
