@@ -9,7 +9,7 @@ namespace KATSS
 {
     class DropItem : Item2D
     {
-        public List<Keys> _keys;
+        public List<Keys> _keys = new List<Keys>();
         float _speed;
         public bool outOfBounds = false;
         public DropItem(string PATH, Vector2 pos, Vector2 dimension, List<Keys> keys, float speed) : base(PATH, pos, dimension)

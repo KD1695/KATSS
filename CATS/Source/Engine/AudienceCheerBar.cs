@@ -38,8 +38,13 @@ namespace KATSS
 
         public void Draw()
         {
-            for (int i = 0; i < currentCheer; ++i) data[i] = Color.Transparent;
-            for (int i = currentCheer; i < data.Length; ++i) data[i] = Color.Red;
+            for (int i = 0; i < currentCheer; i++) data[i] = Color.Transparent;
+            for (int i = currentCheer; i < data.Length; i++)
+            {
+                if (i < 0)
+                    break;
+                data[i] = Color.Red;
+            }
             rect.SetData(data);
             Globals.spriteBatch.Draw(rect, coor, Color.White);
             Globals.spriteBatch.Draw(texture, new Rectangle((int)_texPosition.X, (int)_texPosition.Y, (int)_dimension.X, (int)_dimension.Y), null, Color.White, 0.0f, new Vector2(texture.Bounds.X / 2, texture.Bounds.Y / 2), new SpriteEffects(), 1);

@@ -139,7 +139,7 @@ namespace KATSS
                 {
                     if (drop._keys.Any(key => state.IsKeyDown(key)))
                     {
-                        image = PoseTextureList[drop._keys[0]];
+                        image = PoseTextureList[drop._keys[1]];
                         drop.outOfBounds = true;
                         isPose = true;
                         Globals.cheerP2 = (Globals.cheerP2 + 5) > 99 ? 99 : Globals.cheerP2 + 5;
