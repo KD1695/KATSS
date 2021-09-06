@@ -8,7 +8,7 @@ namespace KATSS
 {
     public class DropItemGenerator
     {
-        int currentTime = 0;
+        float currentTime = 0;
         string dropImagePATH = "Images\\"; 
         Vector2 dropItemDimension = new Vector2(100, 100); //todo change when size is fixed
         float speed = 2f; //default speed
@@ -19,7 +19,7 @@ namespace KATSS
             Random r = new Random();
             if (gameTime.TotalGameTime.TotalSeconds > currentTime)
             {
-                currentTime += 2;
+                currentTime += 1.25f;
 
                 speed = random.Next(3,6);
                 //p1 drop

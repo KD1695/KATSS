@@ -52,8 +52,12 @@ namespace KATSS
             hPBar1.SetHpValue(Globals.hpP1);
             hPBar2.SetHpValue(Globals.hpP2);
 
-            float damageScale = Math.Abs(player1._pos.X - player2._pos.X) / 10;
-            float damage = 700 / ((damageScale < 1) ? 1 : damageScale);
+            float damageScale = 200 - Math.Abs(player1._pos.X - player2._pos.X);
+            if(damageScale < 0)
+            {
+                damageScale = 0;
+            }
+            float damage = (damageScale * 5f) > 200 ? 200 : (damageScale * 1.2f);
             KeyboardState state = Keyboard.GetState();
             if (state.IsKeyDown(Keys.Space) && Globals.cheerP1 >= 50)
             {
