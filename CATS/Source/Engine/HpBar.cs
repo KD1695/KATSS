@@ -32,7 +32,7 @@ namespace KATSS
 
         public void Update(GameTime gameTime)
         {
-            skipIndexLength = hpBarValue;
+            skipIndexLength = hpBarValue == 0 ? 1 : hpBarValue;
         }
 
         public void Draw()
@@ -54,6 +54,8 @@ namespace KATSS
 
         public void SetHpValue(float val)
         {
+            if (val < 0)
+                val = 0;
             hpBarValue = (int)(260 * val / 1000);
         }
     }
