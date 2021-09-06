@@ -45,7 +45,7 @@ namespace KATSS
             superPose = (_isPlayer1) ? Globals.content.Load<Texture2D>("Images\\attack pose") : Globals.content.Load<Texture2D>("Images\\cat 2 attack pose");
 
             soundEffects = new List<SoundEffect>();
-            soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\Successful hit"));
+            soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\AttackBurst"));
             soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\Medium Crowd Cheer"));
             //soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\Get Hit"));
             
@@ -73,6 +73,7 @@ namespace KATSS
                 currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds; //Time passed since last Update() 
                 if (currentTime >= poseDuration)
                 {
+                    color = Color.White;
                     isPose = false;
                     currentTime = 0;
                     image = neutralPose;
@@ -153,6 +154,13 @@ namespace KATSS
         public void SuperPose()
         {
             image = superPose;
+            soundEffects[0].CreateInstance().Play();
+            isPose = true;
+        }
+
+        public void DamagePose()
+        {
+            color = new Color(178,34,34,150);
             isPose = true;
         }
     }

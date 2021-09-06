@@ -53,12 +53,14 @@ namespace KATSS
             if (state.IsKeyDown(Keys.Space) && Globals.cheerP1 >= 50)
             {
                 player1.SuperPose();
+                player2.DamagePose();
                 Globals.hpP2-= damage;
                 Globals.cheerP1 -= 50;
             }
             if (state.IsKeyDown(Keys.Enter) && Globals.cheerP2 >= 50)
             {
                 player2.SuperPose();
+                player1.DamagePose();
                 Globals.hpP1 -= damage;
                 Globals.cheerP2 -= 50;
             }
