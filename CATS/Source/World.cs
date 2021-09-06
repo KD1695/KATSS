@@ -3,6 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace KATSS
 {
@@ -16,6 +20,7 @@ namespace KATSS
         public AudienceCheerBar bar2 = new AudienceCheerBar(new Vector2(1750, 150));
         public HpBar hPBar1 = new HpBar(new Vector2(30, 50));
         public HpBar hPBar2 = new HpBar(new Vector2(1615, 50));
+        Song bgm;
 
         public World()
         {
@@ -24,6 +29,9 @@ namespace KATSS
             player2 = new Player("Images\\cat2 front", new Vector2(1278, 440), new Vector2(388, 478), Keys.Left, Keys.Right, false);
             bar1.SetCheerValue(0);
             bar2.SetCheerValue(0);
+            this.bgm = Globals.content.Load<Song>("Audio\\Background music");
+            MediaPlayer.Play(bgm);
+            MediaPlayer.Volume = 0.5f;
         }
 
         public void Update(GameTime gameTime)

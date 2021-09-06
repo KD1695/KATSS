@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace KATSS
 {
@@ -31,6 +32,7 @@ namespace KATSS
 
         public Dictionary<Keys, Texture2D> PoseTextureList = new Dictionary<Keys, Texture2D>{};
         Texture2D superPose;
+        List<SoundEffect> soundEffects;
 
         public Player(string PATH, Vector2 pos, Vector2 dimension, Keys left, Keys right, bool isPlayer1) : base(PATH, pos, dimension)
         {
@@ -42,6 +44,11 @@ namespace KATSS
             neutralPose = Globals.content.Load<Texture2D>(PATH);
             superPose = (_isPlayer1) ? Globals.content.Load<Texture2D>("Images\\attack pose") : Globals.content.Load<Texture2D>("Images\\cat 2 attack pose");
 
+            soundEffects = new List<SoundEffect>();
+            soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\Successful hit"));
+            soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\Medium Crowd Cheer"));
+            //soundEffects.Add(Globals.content.Load<SoundEffect>("Audio\\Get Hit"));
+            
             if (isPlayer1)
             {
                 foreach(Keys k in Globals.Player1KeySet)
@@ -111,6 +118,7 @@ namespace KATSS
                 {
                     if (drop._keys.Any(key => state.IsKeyDown(key)))
                     {
+                        soundEffects[1].CreateInstance().Play();
                         image = PoseTextureList[drop._keys[0]];
                         drop.outOfBounds = true;
                         Globals.cheerP1 = (Globals.cheerP1 + 25) > 100 ? 100 : Globals.cheerP1 + 25;
@@ -128,6 +136,7 @@ namespace KATSS
                 {
                     if (drop._keys.Any(key => state.IsKeyDown(key)))
                     {
+                        soundEffects[1].CreateInstance().Play();
                         image = PoseTextureList[drop._keys[1]];
                         drop.outOfBounds = true;
                         isPose = true;

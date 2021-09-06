@@ -13,6 +13,30 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Audio/Background Music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Background Music.mp3
+
+#begin Audio/Get Hit.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Get Hit.mp3
+
+#begin Audio/Medium Crowd Cheer.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Medium Crowd Cheer.wav
+
+#begin Audio/Successful hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Successful hit.wav
+
 #begin Images/0828.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
