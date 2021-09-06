@@ -21,6 +21,7 @@ namespace KATSS
         public HpBar hPBar1 = new HpBar(new Vector2(30, 50));
         public HpBar hPBar2 = new HpBar(new Vector2(1615, 50));
         Song bgm;
+        string starImagePath = "Images\\Star\\Comp 2_";
 
         public World()
         {
@@ -32,6 +33,10 @@ namespace KATSS
             this.bgm = Globals.content.Load<Song>("Audio\\Background music");
             MediaPlayer.Play(bgm);
             MediaPlayer.Volume = 0.5f;
+            for (int i = 0; i <= Globals.starImageLimit; i++)
+            {
+                Globals.starImageList.Add(Globals.content.Load<Texture2D>(starImagePath + i));
+            }
         }
 
         public void Update(GameTime gameTime)

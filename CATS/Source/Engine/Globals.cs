@@ -45,5 +45,8 @@ namespace KATSS
                                                                     {Keys.NumPad3, "cat 2 p3"},
                                                                     {Keys.NumPad4, "cat 2 p4"}
                                                                 };
+
+        public static int starImageLimit = 19;
+        public static List<Texture2D> starImageList = new List<Texture2D>();
     }
 }
