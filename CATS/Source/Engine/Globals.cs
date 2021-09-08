@@ -10,6 +10,8 @@ namespace KATSS
 {
     class Globals
     {
+        public static bool isEndGame = false;
+
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
         public static List<DropItem> dropItems = new List<DropItem>();

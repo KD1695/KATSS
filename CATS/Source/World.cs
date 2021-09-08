@@ -19,13 +19,15 @@ namespace KATSS
         public AudienceCheerBar bar1 = new AudienceCheerBar(new Vector2(-20, 150));
         public AudienceCheerBar bar2 = new AudienceCheerBar(new Vector2(1750, 150));
         public HpBar hPBar1 = new HpBar(new Vector2(30, 50));
-        public HpBar hPBar2 = new HpBar(new Vector2(1615, 50));
+        public HpBar hPBar2 = new HpBar(new Vector2(1515, 50));
         Song bgm;
         string starImagePath = "Images\\Star\\Comp 2_";
+        GameOverScreen gameOver;
 
         public World()
         {
             bg = new Item2D("Images\\background", new Vector2(0,0), new Vector2(1920, 1080));
+            gameOver = new GameOverScreen("Images\\Katsu_Wins", new Vector2(0,0), new Vector2(1920,1080));//389,308)1202,464
             player1 = new Player("Images\\front", new Vector2(318, 440), new Vector2(388,478), Keys.A, Keys.D, true);
             player2 = new Player("Images\\cat2 front", new Vector2(1278, 440), new Vector2(388, 478), Keys.Left, Keys.Right, false);
             bar1.SetCheerValue(0);
@@ -64,13 +66,25 @@ namespace KATSS
                 player1.SuperPose();
                 player2.DamagePose();
                 Globals.hpP2-= damage;
+                if(Globals.hpP2 <= 0 && !Globals.isEndGame)
+                {
+                    gameOver.EndGame("p1");
+                    Globals.isEndGame = true;
+
+                }
                 Globals.cheerP1 -= 50;
             }
             if (state.IsKeyDown(Keys.Enter) && Globals.cheerP2 >= 50)
             {
                 player2.SuperPose();
                 player1.DamagePose();
-                Globals.hpP1 -= damage;
+                Globals.hpP1 -= damage; 
+                if (Globals.hpP1 <= 0 && !Globals.isEndGame)
+                {
+                    gameOver.EndGame("p2");
+                    Globals.isEndGame = true;
+
+                }
                 Globals.cheerP2 -= 50;
             }
 
@@ -93,6 +107,7 @@ namespace KATSS
             player1.Draw();
             player2.Draw();
             itemGenerator.Draw();
+            gameOver.Draw();
         }
     }
 }

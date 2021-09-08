@@ -22,12 +22,12 @@ namespace KATSS
             _texPosition = texPosition;
             rect = new Texture2D(Globals.graphics.GraphicsDevice, 260, 30);
             data = new Color[260 * 30];
-            coor = new Vector2(texPosition.X + 5, texPosition.Y + 5);
+            coor = new Vector2(texPosition.X + 71, texPosition.Y + 34);
             skipIndexLength = data.Length;
             hpBarValue = data.Length;
 
-            texture = Globals.content.Load<Texture2D>("Images\\HP Bar blank");
-            _dimension = new Vector2(270, 41);
+            texture = Globals.content.Load<Texture2D>("Images\\HP Bar Ver2 blank");
+            _dimension = new Vector2(335, 100);
         }
 
         public void Update(GameTime gameTime)

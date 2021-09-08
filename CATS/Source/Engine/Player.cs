@@ -69,6 +69,8 @@ namespace KATSS
 
         public override void Update(GameTime gameTime)
         {
+            if (Globals.isEndGame) return;
+
             if (isPose) {
                 currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds; //Time passed since last Update() 
                 if (currentTime >= poseDuration)
